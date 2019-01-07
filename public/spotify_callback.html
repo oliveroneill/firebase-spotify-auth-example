@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <script>
+      const target = 'https://wilt-221210.firebaseapp.com';
+      let hash = {};
+      // Split up query parameters
+      window.location.hash.replace(/^#\/?/, '').split('&').forEach(keyval => {
+        const splitIndex = keyval.indexOf('=');
+        if (splitIndex == -1) {
+          return;
+        }
+        const key = keyval.substring(0, splitIndex);
+        const val = decodeURIComponent(keyval.substring(splitIndex + 1));
+        hash[key] = val;
+      });
+      if (hash.access_token) {
+        // Create JSON message to send back to HTML page
+        const jsonString = JSON.stringify({
+          type: 'access_token',
+          access_token: hash.access_token,
+          expires_in: hash.expires_in || 0
+        });
+        // Post message
+        window.opener.postMessage(jsonString, target);
+        // Close this window since it's just a popup
+        window.close();
+      }
+    </script>
+  </head>
+</html>
