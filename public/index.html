@@ -74,6 +74,7 @@
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
       console.log("Authenticated:", user);
+      // Show sign out button
       document.getElementById('signout-button').style.display = "block";
       document.getElementById('signin-button').style.display = "none";
     } else {
@@ -90,6 +91,7 @@
   }
 
   function showLoginUI() {
+    // Show sign in button
     document.getElementById('signout-button').style.display = "none";
     document.getElementById('signin-button').style.display = "block";
   }
