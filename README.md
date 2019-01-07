@@ -14,8 +14,8 @@ const firebaseConfig = {
 };
 
 const spotifyConfig = {
-  clientId: '<ENTER-CLIENT-ID>';
-  redirectUri: '<ENTER-CALLBACK-URI>';
+  clientId: '<ENTER-CLIENT-ID>',
+  redirectUri: '<ENTER-CALLBACK-URI>',
 };
 ```
 
