@@ -10,6 +10,7 @@
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.1/firebaseui.css" />
 
   <button id="signin-button" onclick="signIn();" style="display: none;">Login</button>
+  <div id="loading" style="display: none;">Signing in...</div>
   <button id="signout-button" onclick="signOut();" style="display: none;">Sign Out</button>
   <script>
     // Initialise Firebase
@@ -52,6 +53,11 @@
     }
 
     function signIn() {
+      // Show loading text
+      document.getElementById('loading').style.display = "block";
+      // Hide buttons
+      document.getElementById('signout-button').style.display = "none";
+      document.getElementById('signin-button').style.display = "none";
       login()
         .then(accessToken => getUserData(accessToken))
         .then(response => response.json())
@@ -77,6 +83,7 @@
       // Show sign out button
       document.getElementById('signout-button').style.display = "block";
       document.getElementById('signin-button').style.display = "none";
+      document.getElementById('loading').style.display = "none";
     } else {
       showLoginUI();
     }
@@ -93,6 +100,7 @@
   function showLoginUI() {
     // Show sign in button
     document.getElementById('signout-button').style.display = "none";
+    document.getElementById('loading').style.display = "none";
     document.getElementById('signin-button').style.display = "block";
   }
   </script>
