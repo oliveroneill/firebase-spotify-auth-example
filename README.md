@@ -1,4 +1,4 @@
-# firebase-spotify-auth-example
+# Firebase Custom Authentication Example using Spotify
 
 A simple example of using Spotify as the auth provider for Firebase.
 Your Spotify username will be stored as a user in Firebase.
