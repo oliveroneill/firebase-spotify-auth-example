@@ -33,10 +33,6 @@
           const hash = JSON.parse(event.data);
           if (hash.type == 'access_token') {
             resolve(hash.access_token);
-          } else {
-            // Received bad message - possibly we can ignore this and wait for
-            // another message
-            reject(new Error("Unexpected message."));
           }
         }, false);
 
